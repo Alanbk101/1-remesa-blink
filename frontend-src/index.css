@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 96%;
+    --foreground: 220 15% 15%;
+
+    --card: 40 15% 93%;
+    --card-foreground: 220 15% 15%;
+
+    --popover: 40 15% 93%;
+    --popover-foreground: 220 15% 15%;
+
+    --primary: 195 100% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 170 85% 42%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 40 10% 90%;
+    --muted-foreground: 220 10% 40%;
+
+    --accent: 270 60% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 10% 15% / 0.1;
+    --input: 220 10% 15% / 0.1;
+    --ring: 195 100% 40%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 40 20% 96%;
+    --sidebar-foreground: 220 10% 30%;
+    --sidebar-primary: 195 100% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 10% 90%;
+    --sidebar-accent-foreground: 220 10% 30%;
+    --sidebar-border: 220 10% 15% / 0.1;
+    --sidebar-ring: 195 100% 40%;
+
+    /* Custom tokens */
+    --glow-green: 195 100% 45%;
+    --glow-cyan: 170 85% 50%;
+    --glow-purple: 270 60% 58%;
+    --surface-glass: 220 10% 15% / 0.04;
+    --surface-glass-strong: 220 10% 15% / 0.06;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-foreground/[0.08];
+  }
+
+  body {
+    @apply bg-background text-foreground font-display antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+
+  p {
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+  }
+}
+
+@layer components {
+  .liquid-glass {
+    background: rgba(255,255,255,0.5);
+    background-blend-mode: luminosity;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), inset 0 1px 1px rgba(255,255,255,0.8);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .liquid-glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(
+      180deg,
+      rgba(255,255,255,0.9) 0%,
+      rgba(255,255,255,0.4) 20%,
+      transparent 40%,
+      transparent 60%,
+      rgba(0,0,0,0.03) 80%,
+      rgba(0,0,0,0.06) 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .liquid-glass-strong {
+    background: rgba(255,255,255,0.7);
+    background-blend-mode: luminosity;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08), inset 0 1px 1px rgba(255,255,255,0.9);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .liquid-glass-strong::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(
+      180deg,
+      rgba(255,255,255,0.95) 0%,
+      rgba(255,255,255,0.5) 20%,
+      transparent 40%,
+      transparent 60%,
+      rgba(0,0,0,0.03) 80%,
+      rgba(0,0,0,0.06) 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .glow-green {
+    box-shadow: 0 0 30px rgba(0, 153, 204, 0.3), 0 0 60px rgba(0, 153, 204, 0.1);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.3), 0 0 60px rgba(6, 182, 212, 0.1);
+  }
+
+  .text-gradient-brand {
+    background: linear-gradient(135deg, hsl(210, 100%, 55%), hsl(170, 85%, 50%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .border-top-green { border-top: 3px solid hsl(195, 100%, 45%); }
+  .border-top-cyan { border-top: 3px solid hsl(185, 70%, 48%); }
+  .border-top-purple { border-top: 3px solid hsl(270, 60%, 58%); }
+  .border-top-orange { border-top: 3px solid hsl(30, 90%, 55%); }
+
+  .border-left-red { border-left: 3px solid hsl(0, 72%, 51%); }
+  .border-left-orange { border-left: 3px solid hsl(30, 90%, 55%); }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(4px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  /* WhatsApp chat bubbles */
+  .wa-bubble-user {
+    background: hsl(195, 40%, 90%);
+    border-radius: 12px 0 12px 12px;
+  }
+
+  .wa-bubble-bot {
+    background: hsl(220, 10%, 92%);
+    border-radius: 0 12px 12px 12px;
+  }
+}
