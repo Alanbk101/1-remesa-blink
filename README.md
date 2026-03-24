@@ -19,6 +19,7 @@ RemesaBlink es un bot de WhatsApp que permite enviar USDC (stablecoins) a travé
 - **Landing Page:** [remesas-sin-limites.lovable.app](https://remesa-blink-ai.lovable.app/)
 - **Blink URL:** [Probar en dial.to](https://dial.to/?action=solana-action:http://86.38.204.227/api/actions/remesa&cluster=devnet)
 - **Server Health:** [http://86.38.204.227/health](http://86.38.204.227/health)
+- **Program ID:** B1G72CcRGHYc1UpG4o51VrJySLiwm3d7tCHbQiSb5vZ2
 
 ## 📱 Flujo del Usuario
 
